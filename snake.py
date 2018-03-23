@@ -68,8 +68,16 @@ class FoodSpawner():
 
 	def spawnFood(self):
 		if self.isFoodOnScreen == False:
-			self.position = [random.randrange(1, BOARD_SIZE), random.randrange(1, BOARD_SIZE)]
+			flag = 0
+			while not flag:
+				flag = 1
+				self.position = [random.randrange(1, BOARD_SIZE), random.randrange(1, BOARD_SIZE)]
+				for pos in snake.getBody():
+					if pos[0]==self.position[0] and pos[1]==self.position[1]:
+						flag = 0
+						print("Colision")
 			self.isFoodOnScreen = True
+
 		return self.position
 
 	def setFoodOnScreen(self, bool_value):
