@@ -74,7 +74,7 @@ class FoodSpawner():
 				self.position = [random.randrange(1, BOARD_SIZE), random.randrange(1, BOARD_SIZE)]
 				for pos in snake.getBody():
 					if pos[0]==self.position[0] and pos[1]==self.position[1]:
-						flag = 0¡
+						flag = 0
 			self.isFoodOnScreen = True
 
 		return self.position
